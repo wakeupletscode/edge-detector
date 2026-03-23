@@ -38,7 +38,7 @@ if uploaded is not None:
     def recommend_operator(gray):
         blur_score=cv2.Laplacian(gray, cv2.CV_64F).var()
         contrast=gray.std()
-        if blur_score<250:
+        if blur_score<200:
             return "Canny","Image appears blurry or noisy — Canny handles this best with its built-in Gaussian pre-blur."
         elif contrast>60:
             return "Sobel","High contrast image — Sobel captures strong gradient edges well."
